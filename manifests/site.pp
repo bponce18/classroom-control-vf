@@ -45,9 +45,9 @@ node default {
   notify { "Hello, my name is ${::hostname}": }
   include examples::fundamentals
   
-  exec {
-    path    =>
-    creates =>
+  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd:
+    path    => '/usr/local/bin'
+    creates => '/etc/motd'
   }
   
 }
