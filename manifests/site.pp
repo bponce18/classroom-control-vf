@@ -50,4 +50,10 @@ node default {
     creates => '/etc/motd',
   }
   
+  host { 'bponce18.puppetlabs.vm':
+    ensure               => present,
+    ip                   => '127.0.0.1',
+    host_aliases         => 'bponce18'
+    }
+  
 }
