@@ -44,4 +44,10 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
   include examples::fundamentals
+  
+  exec {
+    path    =>
+    creates =>
+  }
+  
 }
