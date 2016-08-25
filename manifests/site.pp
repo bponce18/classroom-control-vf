@@ -42,6 +42,10 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
+  if $::virtual != 'physical' {
+     $vmname = capitalize($::virtual)
+     notify { "This is a ${vmname} virtual machine.": }
+  }   
   notify { "Hello, my name is ${::hostname}": }
   include examples::fundamentals
   include users
@@ -58,5 +62,5 @@ node default {
     ip                   => '127.0.0.1',
     host_aliases         => 'bponce18'
     }
-  
-}
+    
+ }
