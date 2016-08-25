@@ -64,9 +64,4 @@ node default {
     host_aliases         => 'bponce18'
     }
     
-  if $::osfamily == 'Windows' {
-   Package {
-    provider => chocolatey,
-  }
-
 }
