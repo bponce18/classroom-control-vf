@@ -53,6 +53,7 @@ node default {
   include memcached
   include nginx
   include users::admins
+  include nginx
   exec { "cowsay 'Welcome to ${::fqdn}' > /etc/motd":
     path    => '/usr/local/bin',
     creates => '/etc/motd',
@@ -64,4 +65,9 @@ node default {
     host_aliases         => 'bponce18'
     }
     
- }
+  if $::osfamily == 'Windows' {
+   Package {
+    provider => chocolatey,
+  }
+
+}
